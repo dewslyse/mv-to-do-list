@@ -3,12 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+    <title>To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/861ecf43a0.js" crossorigin="anonymous"></script>
 <script defer src="main.js"></script></head>
 
 <body>
-    <h1>Hello webpack!</h1>
+    <main class="container">
+        <div class="caption">
+            <h1 class="heading">Today's To Do</h1>
+            <span><i class="fas fa-sync-alt"></i></span>
+        </div>
+
+        <form class="form">
+            <input type="text" name="add-item" id="add-item" placeholder="Add to your list...">
+            <span><i class="fas fa-level-down-alt"></i></span>
+        </form>
+
+        <div class="lists"></div>
+
+        <button class="clear-btn" type="button">Clear all completed</button>
+    </main>
 </body>
 
 </html>
