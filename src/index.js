@@ -13,7 +13,7 @@ class Task {
 
 class Todos {
   // Retrieve tasks from localStorage
-  static retrieveTask() {
+  static retrieveTask = () => {
     let todos;
     if (localStorage.getItem('todos') === null) {
       todos = [];
@@ -25,14 +25,14 @@ class Todos {
   }
 
   //Add a to-do
-  static addTask(todo) {
+  static addTask = (todo) => {
     const todos = Todos.retrieveTask();
     todos.push(todo);
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
   //Delete a to-do
-  static removeTask(id) {
+  static removeTask = (id) => {
     const todos = Todos.retrieveTask();
     todos.forEach((todo, index) => {
       if (todo.index === id) {
@@ -44,7 +44,7 @@ class Todos {
   }
 
   //Update to-do index
-  static updateIndex() {
+  static updateIndex = () => {
     const todos = Todos.retrieveTask();
     let i = 0;
     for (let j = 0; j < todos.length; j++) {
@@ -55,7 +55,7 @@ class Todos {
   }
 
   //Update to-do description
-  static updateTodo(value, todo) {
+  static updateTodo = (value, todo) => {
     const todos = Todos.retrieveTask();
     todos[todo.index - 1].description = value;
 
@@ -63,14 +63,14 @@ class Todos {
   }
 
   //Reset todo list
-  static resetAll() {
+  static resetAll = () => {
     localStorage.clear();
   }
 }
 
 class Actions {
   //Display task on page
-  static displayTask() {
+  static displayTask = () => {
     const todos = Todos.retrieveTask();
 
     todos.forEach((todo) => {
@@ -79,7 +79,7 @@ class Actions {
   }
 
   //Add and new Task
-  static addNewTask(todo) {
+  static addNewTask = (todo) => {
     const listItem = document.createElement('div');
     listItem.classList.add('list-item');
 
@@ -111,7 +111,6 @@ class Actions {
     p.appendChild(taskDescription);
 
     listItem.appendChild(p);
-
     listItem.appendChild(rmBtn);
     listItem.appendChild(mvbtn);
 
