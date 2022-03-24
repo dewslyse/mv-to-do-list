@@ -44,6 +44,31 @@ input {
   width: 80%;
 }
 
+.add-btn,
+.rm-btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transform: rotate(90deg);
+  color: grey;
+}
+
+.rm-btn {
+  transform: unset;
+  cursor: pointer;
+  transform: scale(1.375);
+
+  &:hover {
+    color: red;
+  }
+}
+
+.move {
+  display: none;
+  padding-left: 30px;
+  cursor: move;
+}
+
 .todo-item {
   display: flex;
   align-items: center;
@@ -57,6 +82,8 @@ input {
 
 .desc {
   font-size: 1.325rem;
+  display: flex;
+  align-items: center;
 }
 
 .clear-btn {
