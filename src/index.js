@@ -54,16 +54,13 @@ class Todos {
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
-  ///////////////////////
-  ///////////////////////
   //Update to-do description
   static updateTodo(value, todo) {
     const todos = Todos.retrieveTask();
-    todos[todos.index - 1].description = value;
+    todos[todo.index - 1].description = value;
+
     localStorage.setItem('todos', JSON.stringify(todos));
   }
-  /////////////////////
-  /////////////////////////////
 
   //Reset todo list
   static resetAll() {
@@ -85,24 +82,38 @@ class Actions {
   static addNewTask(todo) {
     const listItem = document.createElement('div');
     listItem.classList.add('list-item');
-    listItem.innerHTML = `
-        <p class="desc" id="${todo.index}">
-          <input type="checkbox" class="todo" name="todo" aria-label="Enter task">
-          <span class="editable" contenteditable="true">${todo.description}</span>
-        </p>
-    `;
+
+    const p = document.createElement('p');
+    p.classList.add('desc');
+    p.id = `${todo.index}`;
+
+    const check = document.createElement('input');
+    check.type = 'checkbox';
+    check.classList.add('todo');
+    check.setAttribute('aria-label', `Mark as done`);
+
+    const taskDescription = document.createElement('span');
+    taskDescription.classList.add('editable');
+    taskDescription.innerText = `${todo.description}`;
+    taskDescription.setAttribute('contenteditable', 'true');
 
     const rmBtn = document.createElement('button');
     rmBtn.classList.add('rm-btn');
+    rmBtn.classList.add('hidden');
     rmBtn.setAttribute('aria-label', 'Delete task');
     rmBtn.innerHTML = `<i class="fas fa-trash-alt"></i>`;
 
-    const span = document.createElement('span');
-    span.classList.add('move');
-    span.innerHTML = `<i class="fas fa-ellipsis-v">`;
+    const mvbtn = document.createElement('span');
+    mvbtn.classList.add('move');
+    mvbtn.innerHTML = `<i class="fas fa-ellipsis-v">`;
+
+    p.appendChild(check);
+    p.appendChild(taskDescription);
+
+    listItem.appendChild(p);
 
     listItem.appendChild(rmBtn);
-    listItem.appendChild(span);
+    listItem.appendChild(mvbtn);
 
     lists.appendChild(listItem);
 
@@ -113,22 +124,22 @@ class Actions {
       location.reload();
     });
 
-    /////
-    /////
-    //Edit to-do description
-    const editText = document.querySelectorAll('.editable');
-
-    editText.forEach((el) => {
-      el.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          const item = e.target.value;
-          Todos.updateTodo(item, todo);
-          console.log(e.target.value);
-        }
-      });
+    //Update todo text
+    taskDescription.addEventListener('click', () => {
+      listItem.classList.toggle('edit');
+      rmBtn.classList.toggle('hidden');
     });
-    /////
-    /////
+
+    taskDescription.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        listItem.classList.toggle('edit');
+        rmBtn.classList.toggle('hidden');
+        const item = e.target.innerText;
+        Todos.updateTodo(item, todo);
+        taskDescription.blur();
+        console.log(e.target.innerText)
+      }
+    });
   }
 
   static resetInput() {

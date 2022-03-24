@@ -57,6 +57,7 @@ input {
 }
 
 .rm-btn {
+  // display: none;
   transform: unset;
   // cursor: pointer;
   transform: scale(1.375);
@@ -75,7 +76,7 @@ input {
 }
 
 .move {
-  display: none;
+  // display: none;
   padding-left: 30px;
   cursor: move;
 }
@@ -103,9 +104,23 @@ input {
 }
 
 .editable {
+  width: 95%;
   display: inline-block;
+  
+  &:focus-visible {
+    outline: 2px solid lightblue;
+    outline-offset: 5px;
+    border-radius: 3px;    
+  }
 }
 
+.edit {
+  background-color: #ffffe2;
+}
+
+.hidden {
+  display: none;
+}
 
 .clear-btn {
   width: 100%;
