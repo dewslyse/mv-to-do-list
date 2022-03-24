@@ -39,6 +39,7 @@ class Todos {
         todos.splice(index, 1);
       }
     });
+
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
@@ -68,23 +69,14 @@ class Actions {
   static addNewTask(todo) {
     const listItem = document.createElement('div');
     listItem.classList.add('list-item');
-    // listItem.innerHTML = `
-    //   <div class="todo-item">
-    //     <input type="checkbox" id="todo" class="todo" name="todo">
-    //     <label class="desc" for="todo" id="${todo.index}">${todo.description}</label>
-    //   </div>
-    // `;
-
     listItem.innerHTML = `
-      <div class="todo-item">
         <p class="desc" id="${todo.index}">
           <input type="checkbox" class="todo" name="todo" aria-label="Enter task">
           ${todo.description}
         </p>
-      </div>
     `;
 
-    const btnElements = document.createElement('div');
+    // const btnElements = document.createElement('div');
     const rmBtn = document.createElement('button');
     rmBtn.classList.add('rm-btn');
     rmBtn.setAttribute('aria-label', 'Delete task');
@@ -94,18 +86,16 @@ class Actions {
     span.classList.add('move');
     span.innerHTML = `<i class="fas fa-ellipsis-v">`;
 
-    btnElements.appendChild(rmBtn);
-    btnElements.appendChild(span);
-    listItem.appendChild(btnElements);
+    listItem.appendChild(rmBtn);
+    listItem.appendChild(span);
+
     lists.appendChild(listItem);
 
     //Remove a task
     rmBtn.addEventListener('click', (e) => {
-
       Todos.removeTask(todo.index);
       Todos.updateIndex();
-      e.preventDefault();
-      window.location.reload();
+      location.reload();
     });
   }
 
