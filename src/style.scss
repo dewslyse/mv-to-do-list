@@ -57,9 +57,7 @@ input {
 }
 
 .rm-btn {
-  // display: none;
   transform: unset;
-  // cursor: pointer;
   transform: scale(1.375);
 
   &:hover {
@@ -76,15 +74,9 @@ input {
 }
 
 .move {
-  // display: none;
   padding-left: 30px;
   cursor: move;
 }
-
-// .todo-item {
-//   display: flex;
-//   align-items: center;
-// }
 
 .todo {
   height: 25px;
