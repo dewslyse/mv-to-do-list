@@ -53,6 +53,11 @@ class Todos {
     }
     localStorage.setItem('todos', JSON.stringify(todos));
   }
+
+  //Reset todo list
+  static resetAll() {
+    localStorage.clear();
+  }
 }
 
 class Actions {
@@ -76,7 +81,6 @@ class Actions {
         </p>
     `;
 
-    // const btnElements = document.createElement('div');
     const rmBtn = document.createElement('button');
     rmBtn.classList.add('rm-btn');
     rmBtn.setAttribute('aria-label', 'Delete task');
@@ -126,4 +130,11 @@ addBtn.addEventListener('click', (e) => {
     Todos.addTask(todo);
     Actions.resetInput();
   }
+});
+
+//Remove all todos from page
+const resetBtn = document.querySelector('.fa-sync-alt')
+resetBtn.addEventListener('click', () => {
+  Todos.resetAll();
+  location.reload();
 });

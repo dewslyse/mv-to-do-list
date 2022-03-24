@@ -46,21 +46,31 @@ input {
 }
 
 .add-btn,
-.rm-btn {
+.rm-btn,
+.reset-btn {
   outline: none;
   border: none;
   background-color: transparent;
   transform: rotate(90deg);
   color: grey;
+  cursor: pointer;
 }
 
 .rm-btn {
   transform: unset;
-  cursor: pointer;
+  // cursor: pointer;
   transform: scale(1.375);
 
   &:hover {
     color: red;
+  }
+}
+
+.reset-btn {
+  transform: scale(1.5);
+  
+  &:hover {
+    color: rgb(255, 0, 0);
   }
 }
 
