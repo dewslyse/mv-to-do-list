@@ -80,10 +80,10 @@ input {
   cursor: move;
 }
 
-.todo-item {
-  display: flex;
-  align-items: center;
-}
+// .todo-item {
+//   display: flex;
+//   align-items: center;
+// }
 
 .todo {
   height: 25px;
@@ -95,7 +95,17 @@ input {
   font-size: 1.325rem;
   display: flex;
   align-items: center;
+  width: 85%;
+
+  span {
+    display: inline-flex;
+  }
 }
+
+.editable {
+  display: inline-block;
+}
+
 
 .clear-btn {
   width: 100%;

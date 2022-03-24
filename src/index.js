@@ -54,6 +54,17 @@ class Todos {
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
+  ///////////////////////
+  ///////////////////////
+  //Update to-do description
+  static updateTodo(value, todo) {
+    const todos = Todos.retrieveTask();
+    todos[todos.index - 1].description = value;
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+  /////////////////////
+  /////////////////////////////
+
   //Reset todo list
   static resetAll() {
     localStorage.clear();
@@ -77,7 +88,7 @@ class Actions {
     listItem.innerHTML = `
         <p class="desc" id="${todo.index}">
           <input type="checkbox" class="todo" name="todo" aria-label="Enter task">
-          ${todo.description}
+          <span class="editable" contenteditable="true">${todo.description}</span>
         </p>
     `;
 
@@ -101,6 +112,23 @@ class Actions {
       Todos.updateIndex();
       location.reload();
     });
+
+    /////
+    /////
+    //Edit to-do description
+    const editText = document.querySelectorAll('.editable');
+
+    editText.forEach((el) => {
+      el.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          const item = e.target.value;
+          Todos.updateTodo(item, todo);
+          console.log(e.target.value);
+        }
+      });
+    });
+    /////
+    /////
   }
 
   static resetInput() {
