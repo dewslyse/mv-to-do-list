@@ -2,7 +2,7 @@
 
 # To Do List
 
-> In this project, I built a basic HTML list of To Do tasks using webpack
+> In this project, I built a basic HTML list of To Do tasks using webpack. Tasks can be added, removed and updated.
 
 ## Screenshot
 
