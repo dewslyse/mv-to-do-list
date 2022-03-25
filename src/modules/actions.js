@@ -1,4 +1,6 @@
-import Todos from "./modules/todo.js";
+import Todos from "./todos";
+
+const lists = document.querySelector('.lists');
 
 export default class Actions {
     //Display task on page
