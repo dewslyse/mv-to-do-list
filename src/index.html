@@ -16,12 +16,12 @@
     <main class="container">
         <div class="caption">
             <h1 class="heading">Today's To Do</h1>
-            <span><i class="fas fa-sync-alt"></i></span>
+            <button class="reset-btn" type="button" aria-label="reset button"><i class="fas fa-sync-alt"></i></button>
         </div>
 
         <form class="form">
-            <input type="text" name="add-item" id="add-item" placeholder="Add to your list...">
-            <span><i class="fas fa-level-down-alt"></i></span>
+            <input type="text" name="add-item" id="add-item" placeholder="Add to your list..." contenteditable="true">
+            <button type="submit" class="add-btn"><i class="fas fa-level-down-alt"></i></button>
         </form>
 
         <div class="lists"></div>

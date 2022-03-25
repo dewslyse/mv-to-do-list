@@ -17,6 +17,7 @@ body {
   width: 80%;
   background-color: #fff;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.07);
+  margin: 30px 0;
 }
 
 .caption,
@@ -44,9 +45,37 @@ input {
   width: 80%;
 }
 
-.todo-item {
-  display: flex;
-  align-items: center;
+.add-btn,
+.rm-btn,
+.reset-btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transform: rotate(90deg);
+  color: grey;
+  cursor: pointer;
+}
+
+.rm-btn {
+  transform: unset;
+  transform: scale(1.375);
+
+  &:hover {
+    color: red;
+  }
+}
+
+.reset-btn {
+  transform: scale(1.5);
+
+  &:hover {
+    color: rgb(255, 0, 0);
+  }
+}
+
+.move {
+  padding-left: 30px;
+  cursor: move;
 }
 
 .todo {
@@ -57,6 +86,32 @@ input {
 
 .desc {
   font-size: 1.325rem;
+  display: flex;
+  align-items: center;
+  width: 85%;
+
+  span {
+    display: inline-flex;
+  }
+}
+
+.editable {
+  width: 95%;
+  display: inline-block;
+
+  &:focus-visible {
+    outline: 2px solid lightblue;
+    outline-offset: 5px;
+    border-radius: 3px;
+  }
+}
+
+.edit {
+  background-color: #ffffe2;
+}
+
+.hidden {
+  display: none;
 }
 
 .clear-btn {

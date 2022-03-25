@@ -1,41 +1,34 @@
 import './style.scss';
+import Task from './modules/task.js';
+import Actions from './modules/actions.js';
+import Todos from './modules/todos.js';
 
-const todos = [
-  {
-    description: 'Create To Do project',
-    completed: true,
-    index: '1',
-  },
-  {
-    description: 'Set up GitHub Actions',
-    completed: true,
-    index: '2',
-  },
-  {
-    description: 'Set up webpack',
-    completed: true,
-    index: '3',
-  },
-  {
-    description: 'Complete milestone 1 of To Do project',
-    completed: false,
-    index: '4',
-  },
-];
+// Display tasks from localStorage
+document.addEventListener('DOMContentLoaded', Actions.displayTask);
 
-// Add Todos to page
-const item = (todo) => `
-    <div class="list-item">
-      <div class="todo-item">
-          <input type="checkbox" id="todo" class="todo" name="todo">
-          <label class="desc" for="todo">${todo.description}</label>
-      </div>
-      <span><i class="fas fa-ellipsis-v"></i></span>
-    </div>
-  `;
+// Add a new task from input form
+const addBtn = document.querySelector('.add-btn');
+addBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const todos = Todos.retrieveTask();
+  const todoText = document.querySelector('#add-item').value;
+  const completed = false;
+  const index = todos.length + 1;
 
-const lists = document.querySelector('.lists');
+  if (todoText.trim() === '') {
+    alert('Please add a task');
+  } else {
+    const todo = new Task(todoText, completed, index);
 
-lists.innerHTML = `
-  ${todos.map(item).join('')}
-`;
+    Actions.addNewTask(todo);
+    Todos.addTask(todo);
+    Actions.resetInput();
+  }
+});
+
+// Remove all todos from page
+const resetBtn = document.querySelector('.fa-sync-alt');
+resetBtn.addEventListener('click', () => {
+  Todos.resetAll();
+  window.location.reload();
+});
