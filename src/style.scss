@@ -121,3 +121,8 @@ input {
   border: none;
   background-color: #ddd;
 }
+
+.todo:checked + .editable {
+  color: #a3a3a3;
+  text-decoration: line-through;
+}
