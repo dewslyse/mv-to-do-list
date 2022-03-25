@@ -1,8 +1,8 @@
-//Create a task class
+// Create a task class
 export default class Task {
-    constructor(description, completed, index) {
-        this.description = description;
-        this.completed = completed;
-        this.index = index;
-    }
+  constructor(description, completed, index) {
+    this.description = description;
+    this.completed = completed;
+    this.index = index;
+  }
 }

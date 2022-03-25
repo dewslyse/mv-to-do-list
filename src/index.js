@@ -1,12 +1,12 @@
 import './style.scss';
-import Task from './modules/task';
-import Actions from './modules/actions';
-import Todos from './modules/todos';
+import Task from './modules/task.js';
+import Actions from './modules/actions.js';
+import Todos from './modules/todos.js';
 
-//Display tasks from localStorage
+// Display tasks from localStorage
 document.addEventListener('DOMContentLoaded', Actions.displayTask);
 
-//Add a new task from input form
+// Add a new task from input form
 const addBtn = document.querySelector('.add-btn');
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -17,8 +17,7 @@ addBtn.addEventListener('click', (e) => {
 
   if (todoText.trim() === '') {
     alert('Please add a task');
-  }
-  else {
+  } else {
     const todo = new Task(todoText, completed, index);
 
     Actions.addNewTask(todo);
@@ -27,9 +26,9 @@ addBtn.addEventListener('click', (e) => {
   }
 });
 
-//Remove all todos from page
-const resetBtn = document.querySelector('.fa-sync-alt')
+// Remove all todos from page
+const resetBtn = document.querySelector('.fa-sync-alt');
 resetBtn.addEventListener('click', () => {
   Todos.resetAll();
-  location.reload();
+  window.location.reload();
 });
