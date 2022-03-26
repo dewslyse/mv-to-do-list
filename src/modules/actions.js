@@ -74,6 +74,7 @@ export default class Actions {
       }
     });
 
+    //Change the status of a task
     check.addEventListener('change', (e) => {
       let state;
       if (e.target.checked) {
@@ -87,6 +88,7 @@ export default class Actions {
     });
   }
 
+  //Clear input fields
   static resetInput = () => {
     document.querySelector('#add-item').value = '';
   }
