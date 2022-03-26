@@ -74,21 +74,20 @@ export default class Actions {
       }
     });
 
-    //Change the status of a task
+    // Change the status of a task
     check.addEventListener('change', (e) => {
       let state;
       if (e.target.checked) {
         state = true;
         Todos.updateStatus(state, todo);
-      }
-      else {
+      } else {
         state = false;
         Todos.updateStatus(state, todo);
       }
     });
   }
 
-  //Clear input fields
+  // Clear input fields
   static resetInput = () => {
     document.querySelector('#add-item').value = '';
   }

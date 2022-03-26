@@ -58,7 +58,7 @@ export default class Todos {
     localStorage.clear();
   }
 
-  //Clear completed
+  // Clear completed
   static removeCompleted = () => {
     let todos = Todos.retrieveTask();
     todos.forEach(() => {
@@ -67,4 +67,4 @@ export default class Todos {
     localStorage.setItem('todos', JSON.stringify(todos));
     Todos.updateIndex();
   }
-};
+}
