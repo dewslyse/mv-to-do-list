@@ -25,7 +25,6 @@ export default class Todos {
         todos.splice(index, 1);
       }
     });
-
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
@@ -44,7 +43,6 @@ export default class Todos {
   static updateTodo = (value, todo) => {
     const todos = Todos.retrieveTask();
     todos[todo.index - 1].description = value;
-
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
@@ -52,16 +50,8 @@ export default class Todos {
   static updateStatus = (value, todo) => {
     const todos = Todos.retrieveTask();
     todos[todo.index - 1].completed = value;
-
     localStorage.setItem('todos', JSON.stringify(todos));
   }
-
-  // static updateLocalStorage = () => {
-  //   const todos = Todos.retrieveTask();
-  //   // Todos.updateIndex();
-  //   localStorage.setItem('todos', JSON.stringify(todos));
-  //   // 
-  // }
 
   // Reset todo list
   static resetAll = () => {
@@ -69,14 +59,12 @@ export default class Todos {
   }
 
   //Clear completed
-  // static removeCompleted = () => {
-  //   let todos = Todos.retrieveTask();
-  //   todos.forEach(() => {
-  //     todos = todos.filter((todos) => {
-  //       todos.completed !== true;
-  //     });
-  //   });
-  //   localStorage.setItem('todos', JSON.stringify(todos));
-  //   // Todos.updateIndex();
-  // }
-}
+  static removeCompleted = () => {
+    let todos = Todos.retrieveTask();
+    todos.forEach(() => {
+      todos = todos.filter((todo) => todo.completed !== true);
+    });
+    localStorage.setItem('todos', JSON.stringify(todos));
+    Todos.updateIndex();
+  }
+};
