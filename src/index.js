@@ -32,3 +32,9 @@ resetBtn.addEventListener('click', () => {
   Todos.resetAll();
   window.location.reload();
 });
+
+const clearBtn = document.querySelector('.clear-btn');
+clearBtn.addEventListener('click', () => {
+  Todos.removeCompleted();
+  window.location.reload();
+});
