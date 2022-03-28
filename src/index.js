@@ -16,12 +16,13 @@ addBtn.addEventListener('click', (e) => {
   const index = todos.length + 1;
 
   if (todoText.trim() === '') {
-    alert('Please add a task');
+    Actions.alerts('Please add a task', 'error');
   } else {
     const todo = new Task(todoText, completed, index);
 
     Actions.addNewTask(todo);
     Todos.addTask(todo);
+    Actions.alerts('Task added', 'success');
     Actions.resetInput();
   }
 });

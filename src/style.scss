@@ -132,3 +132,16 @@ input {
   color: #a3a3a3;
   text-decoration: line-through;
 }
+
+.error,
+.success {
+  background-color: red;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.success {
+  background-color: #093;
+}

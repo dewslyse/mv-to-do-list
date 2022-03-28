@@ -1,6 +1,8 @@
 import Todos from './todos.js';
 
 const lists = document.querySelector('.lists');
+const form = document.querySelector('.form');
+const container = document.querySelector('.container');
 
 export default class Actions {
   // Display task on page
@@ -85,6 +87,16 @@ export default class Actions {
         Todos.updateStatus(state, todo);
       }
     });
+  }
+
+  // Show alerts
+  static alerts(msg, className) {
+    const alertBox = document.createElement('div');
+    alertBox.className = `alert ${className}`;
+    const alertMsg = document.createTextNode(msg);
+    alertBox.appendChild(alertMsg);
+    container.insertBefore(alertBox, form);
+    setTimeout(() => alertBox.remove(), 1750);
   }
 
   // Clear input fields
