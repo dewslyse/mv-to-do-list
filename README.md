@@ -15,6 +15,9 @@
 - JavaScript(ES6)
 - Webpack
 
+## Live site 🚀
+
+🔗 [Live Site Link](https://dewslyse.github.io/mv-to-do-list/)
 
 ## Getting Started
 
