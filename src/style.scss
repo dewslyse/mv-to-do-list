@@ -34,12 +34,12 @@ body {
 }
 
 .caption {
-  background-color: #023E8A;
+  background-color: #023e8a;
   color: #fff;
 }
 
 .list-item {
-  background-color: #CAF0F8;
+  background-color: #caf0f8;
 }
 
 .heading {
@@ -132,7 +132,7 @@ input {
   color: whitesmoke;
   font-size: 1.375rem;
   border: none;
-  background-color: #0077B6;
+  background-color: #0077b6;
   cursor: pointer;
 
   &:hover {
@@ -140,7 +140,7 @@ input {
   }
 }
 
-.checkbox:checked+.editable {
+.checkbox:checked + .editable {
   color: #a3a3a3;
   text-decoration: line-through;
 }
