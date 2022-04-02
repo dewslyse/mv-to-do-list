@@ -22,7 +22,6 @@ addBtn.addEventListener('click', (e) => {
 
     Actions.addNewTask(todo);
     Todos.addTask(todo);
-    Actions.alerts('Task added', 'success');
     Actions.resetInput();
   }
 });

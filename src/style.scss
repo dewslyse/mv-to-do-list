@@ -18,6 +18,8 @@ body {
   background-color: #fff;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.07);
   margin: 30px 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .caption,
@@ -29,6 +31,15 @@ body {
   padding: 25px;
   height: 80px;
   border-bottom: 2px solid #d4d4d4;
+}
+
+.caption {
+  background-color: #023E8A;
+  color: #fff;
+}
+
+.list-item {
+  background-color: #CAF0F8;
 }
 
 .heading {
@@ -67,6 +78,7 @@ input {
 
 .reset-btn {
   transform: scale(1.5);
+  color: wheat;
 
   &:hover {
     color: rgb(255, 0, 0);
@@ -117,10 +129,10 @@ input {
 .clear-btn {
   width: 100%;
   height: 80px;
-  color: rgb(119, 119, 119);
+  color: whitesmoke;
   font-size: 1.375rem;
   border: none;
-  background-color: #ddd;
+  background-color: #0077B6;
   cursor: pointer;
 
   &:hover {
@@ -128,7 +140,7 @@ input {
   }
 }
 
-.checkbox:checked + .editable {
+.checkbox:checked+.editable {
   color: #a3a3a3;
   text-decoration: line-through;
 }
