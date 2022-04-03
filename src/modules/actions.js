@@ -92,7 +92,7 @@ export default class Actions {
   // Show alerts
   static alerts(msg, className) {
     const alertBox = document.createElement('div');
-    alertBox.className = `alert ${className}`;
+    alertBox.className = `${className}`;
     const alertMsg = document.createTextNode(msg);
     alertBox.appendChild(alertMsg);
     container.insertBefore(alertBox, form);

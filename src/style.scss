@@ -18,6 +18,8 @@ body {
   background-color: #fff;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.07);
   margin: 30px 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .caption,
@@ -29,6 +31,15 @@ body {
   padding: 25px;
   height: 80px;
   border-bottom: 2px solid #d4d4d4;
+}
+
+.caption {
+  background-color: #023e8a;
+  color: #fff;
+}
+
+.list-item {
+  background-color: #caf0f8;
 }
 
 .heading {
@@ -67,6 +78,7 @@ input {
 
 .reset-btn {
   transform: scale(1.5);
+  color: wheat;
 
   &:hover {
     color: rgb(255, 0, 0);
@@ -117,10 +129,10 @@ input {
 .clear-btn {
   width: 100%;
   height: 80px;
-  color: rgb(119, 119, 119);
+  color: whitesmoke;
   font-size: 1.375rem;
   border: none;
-  background-color: #ddd;
+  background-color: #0077b6;
   cursor: pointer;
 
   &:hover {
